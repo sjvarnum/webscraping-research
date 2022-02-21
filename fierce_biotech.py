@@ -1,3 +1,17 @@
+from datetime import datetime
+import pandas as pd
+import random
+from requests_html import HTML
+from selenium import webdriver
+from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import Select
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.firefox.service import Service
+from selenium.common.exceptions import *
+from time import sleep
+
 service = Service('geckodriver.exe')
 options = webdriver.FirefoxOptions()
 # options.add_argument('-headless')

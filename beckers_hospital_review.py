@@ -14,7 +14,7 @@ from time import sleep
 
 service = Service('geckodriver.exe')
 options = webdriver.FirefoxOptions()
-# options.add_argument('-headless')
+options.add_argument('-headless')
 base_url = 'https://www.beckershospitalreview.com'
 driver = webdriver.Firefox(service=service, options=options)
 wait = WebDriverWait(driver, 10)
