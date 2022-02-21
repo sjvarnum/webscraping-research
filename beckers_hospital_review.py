@@ -55,10 +55,11 @@ for url in urls:
             None
 
         data = {
-            'Date': date,
-            'Channel': channel,
-            'Title': title,
-            'Link': link
+            'date': date,
+            'source': 'www.beckershospitalreview.com',
+            'channel': channel,
+            'title': title,
+            'link': link
         }
 
         article_list.append(data)
@@ -69,9 +70,8 @@ for url in urls:
 driver.close()
 
 df = pd.DataFrame(article_list)
-df['Date'] = pd.to_datetime(df['Date']).dt.strftime('%Y-%m-%d')
-df['Source'] = 'Becker\'s Hospital Review'
-df = df[['Date', 'Source', 'Channel', 'Title', 'Link']]
+df['date'] = pd.to_datetime(df['date']).dt.strftime('%Y-%m-%d')
+df = df[['date', 'source', 'channel', 'title', 'link']]
 df.drop_duplicates(inplace=True)
 datestamp = datetime.today().strftime('%Y%m%dT%H%M')
 df.to_csv(f'Beckers_Hospital_Review_Articles_{datestamp}.csv', index=None)
